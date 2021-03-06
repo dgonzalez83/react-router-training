@@ -1,21 +1,65 @@
 import React, { Fragment } from "react";
-import { Link, Route } from "react-router-dom";
-import routes from "../routes";
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+  useParams,
+  useRouteMatch,
+} from "react-router-dom";
 
-const DefaultLayout = () => {
+import HomePage from "../pages/index";
+import AboutPage from "../pages/about";
+import TopicPage from '../pages/topic'
+
+// import routes from "../routes";
+
+const NavBar = () => {
+
+  let {params} = useParams()
+  console.log(params)
+
+  return (
+    <Fragment>
+      <Link to={"/"}>Home</Link>
+      <span> | </span>
+      <Link to={"/about"}>About</Link>
+      <span> | </span>
+      <Link to={"/topic"}>Topic</Link>
+    </Fragment>
+  );
+};
+
+export default function DefaultLayout() {
+  /*
   const navBox = routes.map(({ path, component }, index) => (
     <Route key={index} exact path={path} component={component} />
   ));
 
   return (
-    <Fragment>
+    <Router>
       <h3>Default Layout works!</h3>
       <Link to={"/"}>Home</Link>
       <span> | </span>
       <Link to={"/about"}>About</Link>
       {navBox}
-    </Fragment>
-  );
-};
+    </Router>
+    );
+    */
 
-export default DefaultLayout;
+  return (
+    <Router>
+      <h3>Default Layout works!</h3>
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route exact path="/about">
+          <AboutPage />
+        </Route>
+        <Route path="/topic/:topicId?" component={TopicPage} />
+      </Switch>
+    </Router>
+  );
+}
