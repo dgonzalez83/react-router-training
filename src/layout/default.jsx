@@ -10,22 +10,16 @@ import {
 
 import HomePage from "../pages/index";
 import AboutPage from "../pages/about";
-import TopicPage from '../pages/topic'
 
 // import routes from "../routes";
 
 const NavBar = () => {
-
-  let {params} = useParams()
-  console.log(params)
 
   return (
     <Fragment>
       <Link to={"/"}>Home</Link>
       <span> | </span>
       <Link to={"/about"}>About</Link>
-      <span> | </span>
-      <Link to={"/topic"}>Topic</Link>
     </Fragment>
   );
 };
@@ -58,7 +52,6 @@ export default function DefaultLayout() {
         <Route exact path="/about">
           <AboutPage />
         </Route>
-        <Route path="/topic/:topicId?" component={TopicPage} />
       </Switch>
     </Router>
   );
