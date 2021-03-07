@@ -10,16 +10,19 @@ import {
 
 import HomePage from "../pages/index";
 import AboutPage from "../pages/about";
+import UsersPage from "../pages/users";
+import UserPage from "../pages/user";
 
 // import routes from "../routes";
 
 const NavBar = () => {
-
   return (
     <Fragment>
       <Link to={"/"}>Home</Link>
       <span> | </span>
       <Link to={"/about"}>About</Link>
+      <span> | </span>
+      <Link to={"/users"}>Users</Link>
     </Fragment>
   );
 };
@@ -46,10 +49,12 @@ export default function DefaultLayout() {
       <h3>Default Layout works!</h3>
       <NavBar />
       <Switch>
-        <Route exact path="/">
+        <Route path="/users/:id" component={UserPage} />
+        <Route path="/users" component={UsersPage} />
+        <Route path="/about">
           <HomePage />
         </Route>
-        <Route exact path="/about">
+        <Route path="/">
           <AboutPage />
         </Route>
       </Switch>
