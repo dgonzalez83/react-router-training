@@ -13,9 +13,9 @@ function UsersPage() {
 
   return (
     <Fragment>
-      <div className="">
-        <h3 className="text-xl">UsersPage works!</h3>
-        <ul className="">
+      <div>
+        <h3>UsersPage works!</h3>
+        <ul>
           {users.map((user) => (
             <li key={user.id}>
               <Link to={`/users/${user.id}`}>{user.name}</Link>
