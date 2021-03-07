@@ -21,7 +21,7 @@ function UserPage() {
     <Fragment>
       <h3>UsersPage works!</h3>
       <div>
-        <p style={{backgroundColor: 'blue'}}>{user.name}</p>
+        <p>{user.name}</p>
       </div>
     </Fragment>
   );
