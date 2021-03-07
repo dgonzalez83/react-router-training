@@ -7,21 +7,22 @@ function UsersPage() {
 
   useEffect(async () => {
     const data = await getUsers();
-    if(!data) return
+    if (!data) return;
     setUsers([...users, ...data]);
   }, []);
 
   return (
     <Fragment>
-      <h3>UsersPage works!</h3>
-        <button className="btn btn-primary">hola</button>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            <Link to={`/users/${user.id}`}>{user.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className="">
+        <h3 className="text-xl">UsersPage works!</h3>
+        <ul className="">
+          {users.map((user) => (
+            <li key={user.id}>
+              <Link to={`/users/${user.id}`}>{user.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </Fragment>
   );
 }

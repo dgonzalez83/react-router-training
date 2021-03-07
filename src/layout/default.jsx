@@ -18,11 +18,14 @@ import UserPage from "../pages/user";
 const NavBar = () => {
   return (
     <Fragment>
-      <Link to={"/"}>Home</Link>
-      <span> | </span>
-      <Link to={"/about"}>About</Link>
-      <span> | </span>
-      <Link to={"/users"}>Users</Link>
+      <h3 className="text-3xl bg-gray-400 text-gray-50">Default Layout works!</h3>
+      <div className="container flex justify-between bg-gray-400 text-gray-50">
+        <Link to={"/"}>Home</Link>
+        <span> | </span>
+        <Link to={"/about"}>About</Link>
+        <span> | </span>
+        <Link to={"/users"}>Users</Link>
+      </div>
     </Fragment>
   );
 };
@@ -46,7 +49,8 @@ export default function DefaultLayout() {
 
   return (
     <Router>
-      <h3>Default Layout works!</h3>
+      
+
       <NavBar />
       <Switch>
         <Route path="/users/:id" component={UserPage} />
